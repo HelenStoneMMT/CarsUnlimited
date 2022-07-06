@@ -10,7 +10,7 @@ services:
       - "9411:9411"
 
   rabbitmq:
-    image: 'docker.io/bitnami/rabbitmq:3.8.13'
+    image: 'docker.io/bitnami/rabbitmq:3.8-debian-10'
     ports:
       - '4369:4369'
       - '5672:5672'
@@ -47,7 +47,8 @@ services:
     - TracingConfiguration__JaegerEndpoint__Port=6831
     - InventoryApiKey=THIS_IS_MY_KEY
     depends_on:
-      - inventorydb    
+      - inventorydb
+      - jaeger
 
   inventoryworker:
     image: ${DOCKER_REGISTRY-}inventory.worker
@@ -89,6 +90,7 @@ services:
     depends_on:
       - cartdb
       - rabbitmq
+      - jaeger
 
   cartworker:
     image: ${DOCKER_REGISTRY-}cart.worker

@@ -30,3 +30,4 @@ services:
    - TracingConfiguration__JaegerEndpoint__Port=6831
    depends_on:
     - cartdb
+    - jaeger

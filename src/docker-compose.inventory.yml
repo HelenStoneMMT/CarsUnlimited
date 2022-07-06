@@ -26,3 +26,4 @@ services:
    - AllowedOrigins="http://localhost:3000"
    depends_on:
     - inventorydb    
+    - jaeger
