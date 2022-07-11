@@ -21,15 +21,5 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
 
-      - name: Secret File
-        uses: ttd2089/secret-file-action@1.0.0
-        id: gc-key-file
-        with:
-          secret: '${{ secrets.GOOGLE_CREDENTIALS }}'
-
-
-      - name: 'Activate Service Account'
-        run: gcloud auth activate-service-account --key-file ${{ steps.gc-key-file.outputs.file }}
-
       - name: 'Create bucket for tfstate file'
         run: gsutil mb -p pocs-352009 gs://tfstate_bucket
