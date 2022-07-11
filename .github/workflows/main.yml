@@ -21,6 +21,8 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
 
-      # Runs a single command using the runners shell
+      - name: 'Add permissions for Service Account'
+        run: gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com --member="serviceAccount:deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/storage.buckets.create"
+
       - name: 'Create bucket for tfstate file'
         run: gsutil mb -p pocs-352009 gs://tfstate_bucket
