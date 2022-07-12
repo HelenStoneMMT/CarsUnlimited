@@ -24,7 +24,7 @@ jobs:
       - name: 'Set permissions'
         run: |
           gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com --member="serviceAccount:deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/iam.serviceAccountTokenCreator" 
-          gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com ----member"serviceAccount:deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/iam.serviceAccountKeyAdmin"  
+          gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com --member"serviceAccount:deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/iam.serviceAccountKeyAdmin"  
           gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com --member="serviceAccount:deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/storage.admin"
 
       - name: 'Create key'
