@@ -22,7 +22,7 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
 
       - name: ''
-        run: gcloud projects add-iam-policy-binding pocs-352009 --member deployment-sa@pocs-352009.iam.gserviceaccount.com --role roles/iam.serviceAccountTokenCreator
+        run: gcloud iam service-accounts add-iam-policy-binding deployment-sa@pocs-352009.iam.gserviceaccount.com --member="deployment-sa@pocs-352009.iam.gserviceaccount.com" --role="roles/iam.serviceAccountTokenCreator"
       
       - name: 'Create key'
         run: gcloud iam service-accounts keys create key-file.json --iam-account deployment-sa@pocs-352009.iam.gserviceaccount.com
