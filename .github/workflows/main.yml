@@ -21,5 +21,11 @@ jobs:
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v0'
       
+      # - name: 'Create key'
+      #   run: gcloud iam service-accounts keys create key-file.json --iam-account deployment-sa@pocs-352009.iam.gserviceaccount.com
+
+      # - name: 'Activate Service Account'
+      #   run: gcloud auth activate-service-account deployment-sa@pocs-352009.iam.gserviceaccount.com --key-file=key-file.json
+      
       - name: 'Create bucket for tfstate file' 
-        run: gsutil mb -p pocs-352009 gs://tfstate_bucket
+        run: gsutil -i "deployment-sa@pocs-352009.iam.gserviceaccount.com" mb gs://new-bucket
